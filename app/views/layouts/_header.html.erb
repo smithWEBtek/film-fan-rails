@@ -1,0 +1,17 @@
+<nav>
+  <div class="nav">
+    <ul>
+      <li> <%= link_to "Home", root_path %> </li>
+
+      <% if logged_in? %>
+        <li> <%= link_to "Your Movies",  %> </li>
+        <li> <%= link_to "Film History" %> </li>
+        <li> <%= link_to "Genres" %> </li>
+        <li> <%= link_to "Profile", users_path %> </li>
+        <li> <%= link_to 'Log Out', logout_path, method: :delete %></li>
+      <% else %>
+        <li> <%= link_to 'Log In', login_path %></li>
+      <% end %>
+    </ul>
+  </div>
+</nav>
