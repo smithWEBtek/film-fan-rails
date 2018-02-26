@@ -1,0 +1,7 @@
+<h1>Edit <%= @director.movie.title  %> </h1>
+
+<%= render 'form'  %>
+
+<p><%= link_to "Cancel", movie_path %></p>
+<!-- cancel takes you back to the director's show page # movie section-->
+<!-- or should it go to movie_path(@movie)-->
