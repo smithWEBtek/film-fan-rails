@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
   resources :directors do
-    resources :artworks
+    resources :movies
   end
 
 
