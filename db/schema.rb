@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180226182835) do
+ActiveRecord::Schema.define(version: 20180226183241) do
 
   create_table "directors", force: :cascade do |t|
     t.string "name"
@@ -21,6 +21,12 @@ ActiveRecord::Schema.define(version: 20180226182835) do
     t.datetime "updated_at", null: false
     t.integer "user_id"
     t.index ["user_id"], name: "index_directors_on_user_id"
+  end
+
+  create_table "format", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "movies", force: :cascade do |t|
