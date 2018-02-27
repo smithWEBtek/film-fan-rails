@@ -4,7 +4,7 @@ class Movie < ApplicationRecord
 
   before_validation :make_title_case
 
-  validates_presence :title, :user_watched, :rating, :comments, :format
+  validates_presence_of :title, :user_watched, :rating, :comments, :format
 
   def make_title_case
     self.title = self.title.titlecase
