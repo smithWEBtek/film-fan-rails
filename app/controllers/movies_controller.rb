@@ -42,7 +42,7 @@ class MoviesController < ApplicationController
   def destroy
     @movie.delete
     flash[:success] = "#{@movie.title} was deleted"
-    redirect_to movies_path
+    redirect_to director_path
   end
 
   private
@@ -56,7 +56,7 @@ class MoviesController < ApplicationController
     end
 
     def movie_params
-      params.require(:movie).permit(:title, :user_watched, :rating, :comments, genre_id:[], :format_attributes => [:id, :name])
+      params.require(:movie).permit(:title, :user_watched, :rating, :comments, genre_ids:[], :format_attributes => [:id, :name])
     end
 
 
