@@ -4,6 +4,9 @@
 
 <p><%= link_to "Add New Movie", new_director_movie_path(@director) %><br></p>
 
+<%= @director.movies.each do |movie| %>
+  <h2> <%= @movie.title %> </h2>
+  <p> Have I watched this movie? <%= @movie.user_watched %> </p>
+<% end %>
 
 
-<p>link test</p>
