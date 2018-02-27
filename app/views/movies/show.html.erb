@@ -6,4 +6,4 @@
 <h4>You've watched this movie</h4>
 <p> Have I watched this movie? <%= @movie.user_watched %> </p>
 
-<p><%= link_to "Show All #{@director.name} Movies", director_movie_path(@director) %> | <%= link_to "Edit Movie", edit_director_movie_path(@movie) %> | <%= link_to "Delete Movie", director_movie_path, method: :delete, data: {confirm: "Are you sure you want to delete this Movie?"} %> </p>
+<p><%= link_to "Show All #{@director.name} Movies", director_path(@director) %> | <%= link_to "Edit Movie", edit_director_movie_path %> | <%= link_to "Delete Movie", director_movie_path, method: :delete, data: {confirm: "Are you sure you want to delete this Movie?"} %> </p>
