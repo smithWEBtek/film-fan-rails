@@ -4,8 +4,9 @@
 
 <p>Sort by First/Last Name   A  |  B  |  C </p>
 <!-- create a sort option list for first/last name; create links for first and last initials -->
+p><%= pluralize(@directors.count, 'Directors') %></p>
 
-<!-- list all artists; filter by abc order last name and first name; add artist's website link -->
+<!-- list all directors; filter by abc order last name and first name-->
 <h4> Director's Name | Movies | Rating</h4>
 <% @directors.each do |d| %>
   <h4><%= link_to d.name, director_path(d) %>  | <%= link_to 'Movies', director_movies_path(d) %> |  <%= d.rating %></h4>
