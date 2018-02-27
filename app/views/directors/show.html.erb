@@ -2,8 +2,10 @@
 
 <p> Discovered through: <%= @director.discovered %> </p>
 
-<p><%= link_to "Show All Directors", artists_path %> | <%= link_to "Edit Director", edit_director_path(@director) %> | <%= link_to "Delete Director", @director, method: :delete, data: {confirm: "Are you sure you want to delete this Director?"} %></p>
+<p><%= link_to "Show All Directors", directors_path %> | <%= link_to "Edit Director", edit_director_path(@director) %> | <%= link_to "Delete Director", @director, method: :delete, data: {confirm: "Are you sure you want to delete this Director?"} %></p>
 
 <br>
+
+<h3> <%= @director.name %>'s Artworks</h3>
 
 <%= render :template => 'movies/index' %>

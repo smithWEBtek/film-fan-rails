@@ -8,5 +8,5 @@
 <!-- list all artists; filter by abc order last name and first name; add artist's website link -->
 <h4> Director's Name | Movies | Rating</h4>
 <% @directors.each do |d| %>
-  <h4><%= link_to d.name, director_path(d) %>  | <%= link_to 'Movies', director_movies_path(d) %> |  <%= a.rating %></h4>
+  <h4><%= link_to d.name, director_path(d) %>  | <%= link_to 'Movies', director_movies_path(d) %> |  <%= d.rating %></h4>
 <% end %>
