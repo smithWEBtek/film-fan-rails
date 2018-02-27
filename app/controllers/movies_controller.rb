@@ -1,5 +1,6 @@
 class MoviesController < ApplicationController
    before_action :set_movie, only: [:show, :edit, :update, :destroy]
+   before_action :find_the_director
 
   def index
     @movies = Movie.all
@@ -7,11 +8,11 @@ class MoviesController < ApplicationController
 
   def new
     @movie = Movie.new
-    @director = Director.find(params[:director_id])
+    
   end
 
   def create
-    @director = Director.find(params[:director_id]) #find the parent
+    
     @movie = @director.movies.build(movie_params)
     if @movie && @movie.save
       flash[:success] = "#{@movie.title} added"
@@ -23,7 +24,7 @@ class MoviesController < ApplicationController
   end
 
   def show
-    @director = Director.new
+    
   end
 
   def edit
@@ -45,6 +46,10 @@ class MoviesController < ApplicationController
   end
 
   private
+
+  def find_the_director
+    @director = Director.find(params[:director_id])
+  end
 
     def set_movie
       @movie = Movie.find(params[:id])
