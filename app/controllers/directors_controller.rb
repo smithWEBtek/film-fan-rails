@@ -23,7 +23,7 @@ class DirectorsController < ApplicationController
   end
 
   def show
-    @movies = @director.movies.build
+    @movies = @director.movies
   end
 
   def edit

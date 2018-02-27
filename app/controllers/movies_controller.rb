@@ -7,7 +7,7 @@ class MoviesController < ApplicationController
 
   def new
     @movie = Movie.new
-    
+    @director = Director.find(params[:director_id])
   end
 
   def create
