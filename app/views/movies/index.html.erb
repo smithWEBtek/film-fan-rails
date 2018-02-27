@@ -2,6 +2,8 @@
 
 <h3> <%= @director.name %>'s Artworks </h3>
 
+<p> sort by format, title, user_watched</p>
+
 <p><%= pluralize(@director.movies.count, 'Movies') %>| <%= link_to "Add New Movie", new_director_movie_path(@director) %><br></p>
 
 <p><%= link_to "Add New Movie", new_director_movie_path(@director) %><br></p>
