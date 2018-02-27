@@ -35,6 +35,9 @@ gem 'omniauth'
 gem 'dotenv-rails'
 gem 'omniauth-facebook'
 
+gem 'bootstrap-sass', '~> 3.2.0'
+gem 'autoprefixer-rails'
+
 # Use Capistrano for deployment
 gem 'capistrano-rails', group: :development
 
