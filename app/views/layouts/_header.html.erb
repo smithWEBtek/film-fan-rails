@@ -3,10 +3,7 @@
     <div class="navbar-header">
         <a class="navbar-brand" href="/"> logo </a>
     </div>
-    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="glyphicon glyphicon-align-justify"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarResponsive">
+  
         <ul class="nav navbar-nav ml-auto">
         <% if !!current_user %>
             <li class="nav-item">
@@ -17,14 +14,13 @@
               <%= link_to "Genres" %>
               <%= link_to "Profile", users_path %>
               <%= link_to logout_path, method: :delete, class: 'nav-link' do %>
-                  <span class="glyphicon glyphicon-log-out"></span> Sign Out
+                  <span class="log-out"></span> Sign Out
               <% end %>
             </li>
         <% else %>
-            <li class="nav-item"><a href="/signup" class="nav-link"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-            <li class="nav-item"><a href="/login" class="nav-link"><span class="glyphicon glyphicon-log-in"></span> Log In</a></li>
+           
         <% end %>
         </ul>
-    </div>
+    
     </div>
   </nav>
