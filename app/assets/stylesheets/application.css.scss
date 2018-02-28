@@ -16,3 +16,20 @@
 
  
  @import "bootstrap";
+
+ 
+ @import url('https://fonts.googleapis.com/css?family=Abril+Fatface');
+ @import url('https://fonts.googleapis.com/css?family=Playfair+Display');
+
+ h1, h2, h3, h4 {
+  font-family: 'Playfair Display', serif;
+ }
+
+ body {
+  font-family: 'Abril Fatface', cursive;
+ }
+
+
+nav li a {
+  margin: 7px;
+}
