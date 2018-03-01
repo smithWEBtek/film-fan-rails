@@ -40,7 +40,7 @@ class MoviesController < ApplicationController
   def destroy
     @movie.delete
     flash[:success] = "#{@movie.title} was deleted"
-    redirect_to director_path
+    redirect_to director_path(@director)
   end
 
   private
