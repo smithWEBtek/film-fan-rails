@@ -1,11 +1,16 @@
-<h1> <%= @director.name %> </h1>
+<div class="container_show">
 
-<p> Discovered through: <%= @director.discovered %> </p>
+  <h1> <%= @director.name %> </h1>
+  <p> Discovered through: <%= @director.discovered %> </p>
+  <p>Rating: <%= @director.rating %></p>
 
-<p><%= link_to "Show All Directors", directors_path %> | <%= link_to "Edit Director", edit_director_path(@director) %> | <%= link_to "Delete Director", @director, method: :delete, data: {confirm: "Are you sure you want to delete this Director?"} %></p>
+    <div class="buttons">
+    <%= link_to "Show All Directors", directors_path,  class:'btn btn-link btn-sm' %>
+    <%= link_to "Edit Director", edit_director_path(@director), class:'btn btn-link btn-sm' %> 
+    <%= link_to "Delete Director", @director, method: :delete, data: {confirm: "Are you sure you want to delete this Director?"}, class:'btn btn-link btn-sm' %>
+    </div>
+</div>
 
-<br>
 
-<h3> <%= @director.name %>'s Artworks</h3>
 
 <%= render :template => 'movies/index' %>
