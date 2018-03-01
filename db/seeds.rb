@@ -17,6 +17,6 @@ Movie.create({
 
 
 Genre.create({
-  name: "oil",
+  name: "action",
   movie_id: [1, 4, 5]
   })
