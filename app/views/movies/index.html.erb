@@ -2,15 +2,35 @@
 
 <h3> <%= @director.name %>'s Movies </h3>
 
-<p> sort by format, title, user_watched</p>
+
 
 <p><%= pluralize(@director.movies.count, 'Movies') %>| <%= link_to "Add New Movie", new_director_movie_path(@director) %><br></p>
 
 <p><%= link_to "Add New Movie", new_director_movie_path(@director) %><br></p>
 
-<%= @director.movies.each do |movie| %>
-  <h2> <%= link_to movie.title, director_movie_path(movie) %> </h2>
-  <p> Have I watched this movie? <%= movie.user_watched %> </p>
-<% end %>
+<table class="table table-hover sortable">
+  <thead>
+    <tr>
+      <!-- <th>Image</th> -->
+      <th>Title</th>
+      <th>Have I wacthed this?</th>
+      <th>Rating</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @director.movies.each do |movie| %>
+    <tr>
+        
+        <td><%= link_to movie.title, director_movie_path(@director, movie) %></td>
+    
+        <td><%= movie.user_watched %></td>
+        <td><%= movie.rating %></td>
+        <td><%= link_to "Edit", edit_director_movie_path(@director, movie) %></td>
+        <td><%= link_to "Delete", director_movie_path(@director, movie),method: :delete, data: {confirm: "Are you sure you want to delete this Movie?"} %></td>
+    <% end %>
+  </tbody>
+</table>
 
 
