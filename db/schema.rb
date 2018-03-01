@@ -23,15 +23,15 @@ ActiveRecord::Schema.define(version: 20180301020106) do
     t.index ["user_id"], name: "index_directors_on_user_id"
   end
 
-  create_table "format", force: :cascade do |t|
+  create_table "genres", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "movie_id"
-    t.index ["movie_id"], name: "index_format_on_movie_id"
+    t.index ["movie_id"], name: "index_genres_on_movie_id"
   end
 
-  create_table "movie_format", force: :cascade do |t|
+  create_table "movie_genres", force: :cascade do |t|
     t.integer "movie_id"
     t.integer "genre_id"
   end

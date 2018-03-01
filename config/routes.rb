@@ -16,7 +16,8 @@ Rails.application.routes.draw do
   resources :directors do
     resources :movies
   end
-  resources :format
+  resources :genres
+  resources :movie_genres
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

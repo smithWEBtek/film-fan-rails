@@ -1,4 +1,4 @@
-class FormatController < ApplicationController
+class GenresController < ApplicationController
 
   before_action :set_genre, only: [:show, :edit, :update, :destroy]
   before_action :find_the_movie
@@ -12,7 +12,7 @@ class FormatController < ApplicationController
   end
 
   def create
-    @genre = @movie.format.build(format_params)
+    @genre = @movie.genres.build(genres_params)
     if @genre && @genre.save
       flash[:success] = "#{@genre.name} added"
       redirect_to director_path(@director)
@@ -29,7 +29,7 @@ class FormatController < ApplicationController
   end
 
   def update
-    if @genre.update(format_params)
+    if @genre.update(genres_params)
       flash[:notice] = "#{@genre.name} was updated"
     end
   end
