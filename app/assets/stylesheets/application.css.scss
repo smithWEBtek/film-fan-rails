@@ -29,9 +29,42 @@
   font-family: 'Abril Fatface', cursive;
  }
 
+ body {
+   background: url(film-background.jpg);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    margin: 0 auto;
+    padding-top: 400px;
+    text-align: center;
+    box-sizing: border-box;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    line-height: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+
+}
+
+
 
 nav li a {
   color: black;
   float: left;
 
+}
+
+form {
+  margin: 32px 16px;
+}
+
+
+
+.field {
+  margin-bottom: 24px;
 }
