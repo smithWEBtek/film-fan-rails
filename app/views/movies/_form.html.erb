@@ -7,8 +7,8 @@
 
   <div class="field">
     <div class="add_genre">
-    <%= f.label "Add a New Genre" %><br>
-    <%= f.fields_for :format, @movie.format.build do | genre_fields| %>
+    <%= f.label "Add a New Genre:" %>
+    <%= f.fields_for :formats, @movie.formats.create do |genre_fields| %>
       <%= genre_fields.text_field :name, {placeholder: "action, fantasy, drama, etc."} %>
    <% end %>
  </div>

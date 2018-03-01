@@ -3,3 +3,5 @@ class AddGenreToMovies < ActiveRecord::Migration[5.1]
     add_reference :movies, :genre, foreign_key: true
   end
 end
+
+

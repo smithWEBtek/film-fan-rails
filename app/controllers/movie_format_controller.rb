@@ -1,0 +1,3 @@
+class MovieFormatController < ApplicationController
+  
+end

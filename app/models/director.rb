@@ -1,7 +1,7 @@
 class Director < ApplicationRecord
 
   belongs_to :user
-  has_many :movies
+  has_many :movies, :dependent => :destroy
   has_many :format, through: :movies
 
   before_validation :make_title_case

@@ -12,11 +12,9 @@ class MoviesController < ApplicationController
   end
 
   def create
-    
     @movie = @director.movies.build(movie_params)
     if @movie && @movie.save
-      flash[:success] = "#{@movie.title} added"
-      redirect_to director_path(@director)
+      redirect_to director_movie_path(@director, @movie)
     else
       flash.now[:error] = "Please enter all fields"
       render :new
