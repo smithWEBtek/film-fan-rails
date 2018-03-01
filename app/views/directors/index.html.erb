@@ -1,10 +1,16 @@
-<h1>All Directors</h1>
+<div class="director_show">
 
-<h4><%= link_to "Add a New Director", new_director_path %></h4>
+  <h1>All Directors</h1>
 
-<p>Sort by First/Last Name   A  |  B  |  C </p>
-<!-- create a sort option list for first/last name; create links for first and last initials -->
-<p><%= pluralize(@directors.count, 'Directors') %></p>
+  <div class="add_director">
+
+  <h4><%= link_to "Add a New Director", new_director_path %></h4>
+
+  <p>Sort by First/Last Name   A  |  B  |  C </p>
+  <!-- create a sort option list for first/last name; create links for first and last initials -->
+  <p><%= pluralize(@directors.count, 'Directors') %></p>
+  </div>
+</div>
 
 <!-- list all directors; filter by abc order last name and first name-->
 <h4> Director's Name | Movies | Rating</h4>
