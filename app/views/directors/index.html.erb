@@ -4,16 +4,32 @@
 
   <div class="add_director">
 
-  <h4><%= link_to "Add a New Director", new_director_path %></h4>
-
-  <p>Sort by First/Last Name   A  |  B  |  C </p>
-  <!-- create a sort option list for first/last name; create links for first and last initials -->
-  <p><%= pluralize(@directors.count, 'Directors') %></p>
+    <p><%= pluralize(@directors.count, 'Directors') %></p>
+    <h4><%= link_to "Add a New Director", new_director_path %></h4>
+  
   </div>
 </div>
 
-<!-- list all directors; filter by abc order last name and first name-->
-<h4> Director's Name | Movies | Rating</h4>
-<% @directors.each do |d| %>
-  <h4><%= link_to d.name, director_path(d) %>  | <%= link_to 'Movies', director_movies_path(d) %> |  <%= d.rating %></h4>
-<% end %>
+<!-- list all directors; filter by abc order last name and first name -->
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Director's Name</th>
+      <th>No. of Movies</th>
+      <th>Rating</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @directors.each do |d| %>
+    <tr>
+      <td><%= link_to d.name, director_path(d) %></td>
+      <td><%= link_to d.movies.count, director_movies_path(d) %></td>
+      <td><%= d.rating %></td>
+      <td><%= link_to "Edit", edit_director_path(d) %></td>
+      <td><%= link_to "Delete", d, method: :delete, data: {confirm: "Are you sure you want to delete this Director?"} %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
