@@ -12,7 +12,7 @@
               <%= link_to "Theaters" %>
               <%= link_to "Film History" %>
               <%= link_to "Genres" %>
-              <%= link_to "Profile", users_path %>
+              <%= link_to "Profile", user_path(current_user) %>
               <%= link_to logout_path, method: :delete, class: 'nav-link' do %>
                   <span class="log-out"></span> Sign Out
               <% end %>
