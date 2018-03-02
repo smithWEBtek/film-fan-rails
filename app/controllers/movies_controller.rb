@@ -14,7 +14,7 @@ class MoviesController < ApplicationController
   def create
     @movie = @director.movies.build(movie_params)
     if @movie && @movie.save
-      redirect_to director_movie_path(@director, @movie)
+      redirect_to director_movie_path(@director, @movie), flash: {success: "'#{@movie.title}' was added!"}
     else
       flash.now[:error] = "Please enter all fields"
       render :new
@@ -30,8 +30,7 @@ class MoviesController < ApplicationController
 
   def update
     if @movie.update(movie_params)
-      flash[:success] = "#{@movie.title} was updated"
-      redirect_to director_path(@director)
+      redirect_to director_path(@director), flash: {success: "#{@movie.title} was updated"}
     else
       render :edit
     end
@@ -39,7 +38,7 @@ class MoviesController < ApplicationController
 
   def destroy
     @movie.delete
-    redirect_to director_path(@director), flash: {success: = "#{@movie.title} was deleted"}
+    redirect_to director_path(@director), flash: {success: "#{@movie.title} was deleted"}
   end
 
   private
