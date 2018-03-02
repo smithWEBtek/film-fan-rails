@@ -14,7 +14,7 @@ class DirectorsController < ApplicationController
     @director = Director.new(director_params)
     @director.user = current_user
     if @director && @director.save
-      redirect_to directors_path(@director), flash[:success] = "#{@director.name} added"
+      redirect_to directors_path(@director), flash:{success: "#{@director.name} added"}
     else
       render :new, flash: {error: "Please enter all fields"}
     end
@@ -29,8 +29,8 @@ class DirectorsController < ApplicationController
 
   def update
     if @director.update(director_params)
-      flash[:success] = "#{@director.name} was updated"
-      redirect_to director_path(@director)
+      
+      redirect_to director_path(@director), flash: {success: "#{@director.name} was updated"}
     else
       render :edit
     end
@@ -38,8 +38,7 @@ class DirectorsController < ApplicationController
 
   def destroy
     @director.delete
-    flash[:success] = "#{@director.name} was deleted"
-    redirect_to directors_path
+    redirect_to directors_path, flash: {success: "#{@director.name} was deleted"}
   end
 
   private
