@@ -14,11 +14,9 @@ class DirectorsController < ApplicationController
     @director = Director.new(director_params)
     @director.user = current_user
     if @director && @director.save
-      flash[:success] = "#{@director.name} added"
-      redirect_to directors_path(@director)
+      redirect_to directors_path(@director), flash[:success] = "#{@director.name} added"
     else
-      flash.now[:error] = "Please enter all fields"
-      render :new
+      render :new, flash: {error: "Please enter all fields"}
     end
   end
 
