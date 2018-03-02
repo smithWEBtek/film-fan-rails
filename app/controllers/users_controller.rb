@@ -26,7 +26,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    redirect_to root_path unless session[:user_id] #redirect to artists path
+    redirect_to root_path unless session[:user_id] 
   end
 
   def update
