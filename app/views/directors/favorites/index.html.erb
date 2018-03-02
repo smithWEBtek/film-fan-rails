@@ -1,0 +1,29 @@
+<div class="container_show">
+  <h1>My Favorite Directors</h1>
+</div>
+
+
+
+<!-- list all artists; filter by abc order last name and first name; add artist's website link -->
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Director's Name</th>
+      <th>No. of Movies</th>
+      <th>Rating</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @directors.each do |d| %>
+    <tr>
+      <td><%= link_to d.name, director_path(d) %></td>
+      <td><%= link_to d.movies.count, director_movies_path(d) %></td>
+      <td><%= a.rating %></td>
+      <td><%= link_to "Edit", edit_director_path(d) %></td>
+      <td><%= link_to "Delete", d, method: :delete, data: {confirm: "Are you sure you want to delete this Director?"} %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
