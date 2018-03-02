@@ -1,6 +1,6 @@
 <h2> <%= @movie.title %> </h2>
 <p>Genre:</p>
-    <ul>
+    <ul style="list-style-type: none">
       <% @movie.genres.each do |genre| %>
         <li> <%= genre.name %> </li>
       <% end %>
