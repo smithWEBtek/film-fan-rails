@@ -20,7 +20,7 @@
     <tr>
       <td><%= link_to d.name, director_path(d) %></td>
       <td><%= link_to d.movies.count, director_movies_path(d) %></td>
-      <td><%= a.rating %></td>
+      <td><%= d.rating %></td>
       <td><%= link_to "Edit", edit_director_path(d) %></td>
       <td><%= link_to "Delete", d, method: :delete, data: {confirm: "Are you sure you want to delete this Director?"} %></td>
     </tr>
