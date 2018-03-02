@@ -19,6 +19,10 @@ Rails.application.routes.draw do
   namespace :directors do
      resources :favorites, only: [:index]
    end 
+
+   resources :directors do
+     resources :movies 
+   end
     
 
   resources :genres
