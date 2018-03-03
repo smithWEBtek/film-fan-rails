@@ -17,7 +17,7 @@ Once you have Ruby 2.3.1 and Rails 5.1.4 installed,
 * Sign up for an Account or Login using Facebook
 
 ## Contributing
-Bug reports and pull requests are welcome on GitHub at https://github.com/christinetran825/Artphilia. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/Eclecticdynasty/film-fan-rails. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## License
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
