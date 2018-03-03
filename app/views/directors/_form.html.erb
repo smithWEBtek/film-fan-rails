@@ -1,5 +1,6 @@
 <%= form_for @director do |f| %>
 <%= render 'shared/form_errors', target: @director %>
+
   <div class="field">
     <%= f.label :name, "Director's Name" %><br>
     <%= f.text_field :name %>

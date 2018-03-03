@@ -18,6 +18,17 @@
          <%= content_tag :div, msg, class: "alert alert-#{name}" %>
        <% end -%>
 
-    <%= yield %>
+
+      <%= yield :form_errors %>
+
+      <%= yield %>
+    </div>
+
+
   </body>
+
+  
+    
 </html>
+
+
