@@ -4,6 +4,7 @@ class DirectorsController < ApplicationController
 
   def index
     @directors = Director.all
+    @directors = current_user.directors.order(:name)
   end
 
   def new
@@ -29,7 +30,6 @@ class DirectorsController < ApplicationController
 
   def update
     if @director.update(director_params)
-      
       redirect_to director_path(@director), flash: {success: "#{@director.name} was updated"}
     else
       render :edit
