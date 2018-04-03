@@ -14,7 +14,7 @@
  </div>
 <!-- checkbox for exisiting format if format.checked? -->
   <div class="show_collection">
-    <%= f.collection_check_boxes :genre_id, Genre.all, :id, :name do |g| %>
+    <%= f.collection_check_boxes :genre_ids, Genre.all, :id, :name do |g| %>
     <div class="collection_check_box">
       <%= g.check_box %>
       <%= g.label %>
