@@ -10,43 +10,48 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180301020106) do
+ActiveRecord::Schema.define(version: 20180505181035) do
+
+  create_table "comments", force: :cascade do |t|
+    t.text "body"
+    t.integer "user_id"
+    t.integer "movie_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "directories", force: :cascade do |t|
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "directors", force: :cascade do |t|
     t.string "name"
-    t.string "discovered"
+    t.integer "user_id"
+    t.boolean "favorite", default: false
     t.integer "rating"
     t.string "notes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "user_id"
-    t.index ["user_id"], name: "index_directors_on_user_id"
   end
 
   create_table "genres", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "movie_id"
-    t.index ["movie_id"], name: "index_genres_on_movie_id"
-  end
-
-  create_table "movie_genres", force: :cascade do |t|
-    t.integer "movie_id"
-    t.integer "genre_id"
   end
 
   create_table "movies", force: :cascade do |t|
     t.string "title"
-    t.string "user_watched"
-    t.integer "rating"
-    t.string "comments"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer "year"
     t.integer "director_id"
     t.integer "genre_id"
-    t.index ["director_id"], name: "index_movies_on_director_id"
-    t.index ["genre_id"], name: "index_movies_on_genre_id"
+    t.text "description"
+    t.integer "user_id"
+    t.boolean "watched", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
