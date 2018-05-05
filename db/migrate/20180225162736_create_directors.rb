@@ -3,7 +3,8 @@ class CreateDirectors < ActiveRecord::Migration[5.1]
     create_table :directors do |t|
 
       t.string :name
-      t.string :discovered
+      t.integer :user_id
+      t.boolean :favorite, default: false
       t.integer :rating
       t.string :notes
 

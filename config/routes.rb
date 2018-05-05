@@ -19,9 +19,11 @@ Rails.application.routes.draw do
   namespace :directors do
      resources :favorites, only: [:index]
    end 
-   namespace :movies do
-     resources :watched, only: [:index]
-   end
+   # namespace :movies do
+   #   resources :watched, only: [:index]
+   # end
+
+   get 'movies/watched', to: 'movies#watched'
 
    resources :directors do
      resources :movies 

@@ -1,7 +1,5 @@
 class Genre < ApplicationRecord
-  has_many :movie_genre
-  has_many :movies, through: :movie_genre
-
+has_many :movies
 
   before_validation :make_title_case
   validates :name, presence: true, uniqueness: true

@@ -1,6 +1,6 @@
 class MoviesController < ApplicationController
    before_action :set_movie, only: [:show, :edit, :update, :destroy]
-   before_action :find_the_director
+   before_action :find_the_director, except: [:watched]
 
   def index
     @movies = Movie.all
@@ -40,6 +40,10 @@ class MoviesController < ApplicationController
     @movie.delete
     redirect_to director_path(@director), flash: {success: "#{@movie.title} was deleted"}
   end
+
+  # def watched
+  #   @movie = @directors
+  # end
 
   private
 

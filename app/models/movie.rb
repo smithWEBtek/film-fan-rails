@@ -1,8 +1,8 @@
 class Movie < ApplicationRecord
+ belongs_to :user
   belongs_to :director
-  has_many :movie_genre
-  has_many :genres, :through => :movie_genre
-
+  belongs_to :genre
+  has_many :comments
   
 
   before_validation :make_title_case
