@@ -16,7 +16,7 @@ class MoviesController < ApplicationController
     if @movie.save
       @movie.update(user_id: current_user.id, user_watched: current_user.id)
       current_user.watched_movies << @movie
-      redirect_to redirect_to movies_path(@movie), flash: {success: "'#{@movie.title}' was added!"}
+      redirect_to movies_path(@movie), flash: {success: "'#{@movie.title}' was added!"}
     else
       flash.now[:error] = "Please enter all fields"
       render :new

@@ -1,0 +1,23 @@
+<h1> You have entered the directory!</h1>
+
+<h2> Browse by genre: </h2>
+
+<div class="container-show">
+
+  
+</div>
+
+<% @genres.each do |genre| %>
+  <p><%= link_to genre.name, genre_path(genre.id), class: "show_genre", id: "genre-list" %></p>
+  <% end %>
+  
+
+  <h2> New to Directory</h2>
+
+  <div class="container-show">
+    <ol>
+    <% Movie.newest_movies.each do |movie| %>
+      <li> <%= link_to movie.title, movie_path(movie.id) %> by <%=movie.director%></li>
+    <% end %>
+  </ol>
+  </div>
