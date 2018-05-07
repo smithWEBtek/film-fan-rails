@@ -10,13 +10,13 @@ class SessionsController < ApplicationController
     if auth
       @user = User.set_user_from_omniauth(auth['uid'])
       log_user_in
-      redirect_to directors_path(@user), flash: {success: "You're logged in through Facebook!"}
+      redirect_to root_path(@user), flash: {success: "You're logged in through Facebook!"}
     else
       #find user by username
       @user = User.find_by(username: params[:user][:username])
       if @user && @user.authenticate(params[:user][:password])
         log_user_in
-        redirect_to directors_path,  flash: {success: "You're logged in!"}
+        redirect_to root_path,  flash: {success: "You're logged in!"}
       else
         redirect_to '/sessions/new', flash: {danger: "Invalid email/password combination!"}
       end

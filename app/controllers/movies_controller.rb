@@ -1,6 +1,5 @@
 class MoviesController < ApplicationController
-   before_action :set_movie, only: [:show, :edit, :update, :destroy]
-   before_action :find_the_director, except: [:watched]
+  
 
   def index
     @movies = Movie.all
@@ -8,13 +7,16 @@ class MoviesController < ApplicationController
 
   def new
     @movie = Movie.new
+    @movie.build_genre
     
   end
 
   def create
-    @movie = @director.movies.build(movie_params)
-    if @movie && @movie.save
-      redirect_to director_movie_path(@director, @movie), flash: {success: "'#{@movie.title}' was added!"}
+    @movie = Movie.new(movie_params)
+    if @movie.save
+      @movie.update(user_id: current_user.id, user_watched: current_user.id)
+      current_user.watched_movies << @movie
+      redirect_to redirect_to movies_path(@movie), flash: {success: "'#{@movie.title}' was added!"}
     else
       flash.now[:error] = "Please enter all fields"
       render :new
@@ -22,41 +24,47 @@ class MoviesController < ApplicationController
   end
 
   def show
-    
+    @movie = Movie.find(params[:id])
+    @comments = @movie.comments
+    @comment = Comment.new
   end
 
   def edit
+    @movie = Movie.find(params[:id])
   end
 
   def update
     if @movie.update(movie_params)
-      redirect_to director_path(@director), flash: {success: "#{@movie.title} was updated"}
+      redirect_to movie_path(@movie), flash: {success: "#{@movie.title} was updated"}
     else
       render :edit
     end
   end
 
   def destroy
-    @movie.delete
-    redirect_to director_path(@director), flash: {success: "#{@movie.title} was deleted"}
+    @movie = Movie.find(params[:id])
+    @movie.destroy
+
+    flash[:success] = "#{@movie.title} has been deleted."
+    redirect_to directory_path(current_user.id)
   end
 
-  # def watched
-  #   @movie = @directors
-  # end
+  def favorite
+    @movie = Movie.find(params[:id])
+    @movie.user_id = current_user.id
+    @movie.favorite
+    flash[:success] = "Movie added to your favorites!"
+
+    redirect_to directory_path(current_user.id)
+  end
+
+ 
 
   private
 
-  def find_the_director
-    @director = Director.find(params[:director_id])
-  end
-
-    def set_movie
-      @movie = Movie.find(params[:id])
-    end
 
     def movie_params
-      params.require(:movie).permit(:title, :user_watched, :rating, :comments, genre_ids:[], :genres_attributes => [:id, :name, :_destroy])
+      params.require(:movie).permit(:title, :year, :description, :director, genre_ids:[], :genres_attributes => [:id, :name, :_destroy])
     end
 
 

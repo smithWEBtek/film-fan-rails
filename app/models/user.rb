@@ -1,7 +1,6 @@
 class User < ApplicationRecord
   has_secure_password 
 
-  has_many :directors
   has_many :movies
   has_many :comments
   has_many :commented_movies, through: :comments, source: :movie
@@ -25,5 +24,16 @@ class User < ApplicationRecord
       u.password ||= SecureRandom.base58
     end
   end
+
+  def watched_movies
+    @watched_movies = self.movies.find_all {|movie| movie.user_wathed == self.id}
+  end
+
+  def create_directory
+    new_directory = Directory.new
+    self.id = new_directory.user_id
+    new_directory.save
+  end
+
   
 end

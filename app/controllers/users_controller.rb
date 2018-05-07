@@ -17,7 +17,7 @@ class UsersController < ApplicationController
     if @user && @user.save
       log_user_in
       flash[:success] = "You've successfully created an account!"
-      redirect_to user_path(@user)
+      redirect_to root_path(@user)
       # redirect_to @user #/users/#{@user.id} same as user_path(@user)
     else
       flash.now[:error] = "Please enter a valid email & valid password"

@@ -1,13 +1,31 @@
 class Movie < ApplicationRecord
  belongs_to :user
-  belongs_to :director
   belongs_to :genre
   has_many :comments
   
 
   before_validation :make_title_case
 
-  validates_presence_of :title, :user_watched, :rating, :comments
+  validates_presence_of :title, :year, :description, :director
+
+
+  def available
+    if self.inventory != 0
+      return true
+    else
+      return false
+    end  
+  end
+
+  def favorite
+    self.inventory = self.inventory - 1
+    self.watched = true
+    self.save
+  end
+
+  def self.newest_comment
+    order('created_at desc').limit(5)    
+  end
 
   def make_title_case
     self.title = self.title.titlecase

@@ -1,0 +1,31 @@
+<h1><%= current_user.username%>'s Directory</h1>
+
+
+<h3>Movies I've Watched</h3>
+<p><%=link_to 'Click here to add a Movie to your Movies I have watched list', new_movie_path%></p>
+
+    <% if @watched_movies != [] %>
+        <ol>
+        <% @watched_movies.each do |movie| %>
+            <li><%=link_to movie.title, movie_path(movie.id)%> by <%=movie.director%></li>
+            
+            <%= link_to 'Delete movie', movie_path(movie), :id => "directory-button", method: :delete %><br>
+            <%= link_to 'Edit book', edit_movie_path(movie), :id => "directory-button" %>
+                <br>
+                <br>
+        <%end%>
+        </ol>
+    <% else %>
+        <p>Your list is currently empty.</p>
+    <% end %>
+    <br>
+
+    <h3>My Comments </h3>
+
+    <ol>
+    <% @my_directory.user.comments.each do |comment| %>
+        <li><%=link_to comment.movie.title, movie_path(comment.movie.id)%></li>
+            <p><%=comment.body%></p>
+        <br>
+        <% end %>
+    </ol>

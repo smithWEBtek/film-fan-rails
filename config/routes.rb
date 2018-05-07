@@ -16,22 +16,20 @@ Rails.application.routes.draw do
   resources :users, except: [:index]
   resources :sessions, only: [:new, :create, :destroy]
 
-  namespace :directors do
-     resources :favorites, only: [:index]
-   end 
-   # namespace :movies do
-   #   resources :watched, only: [:index]
-   # end
 
-   get 'movies/watched', to: 'movies#watched'
 
-   resources :directors do
+   
      resources :movies 
-   end
+   
+   resources :movies, only: [:show] do
+    resources :comments
+  end
     
-
+  resources :directory, only: [:show]
   resources :genres
-  resources :movie_genres
+
+  post 'movies/:id/favorite', to: 'movies#favorite', as: 'favorite'
+  
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

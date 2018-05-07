@@ -1,15 +1,44 @@
-<h2> <%= @movie.title %> </h2>
-<p>Genre:</p>
-    <ul style="list-style-type: none">
-      <% @movie.genres.each do |genre| %>
-        <li> <%= genre.name %> </li>
-      <% end %>
-    </ul>
-    <p> Rating: <%= @movie.rating %> </p>
-    <p> Comments: <%= @movie.comments %> </p>
+<h2> <%= @movie.title %></h2>
+<h3>Directoror: <%= @movie.director %></h3>
+<h4><%= @movie.year %></h4>
+<p><strong>Description:</strong> <%= @movie.description %></p>
+
+<p><strong>Availability:</strong></p>
+   <% if @movie.available? %>
+       <p>This movie is available.</p>
+          <p><%= button_to 'Favorite this movie', favorite_path %></p>
+          <% else %>
+             <p><strong>Sorry, thise movie isn't available. </strong></p>
+          <% end %>
+ 
+ <h2>Comments</h2>
+   <% if @movie.comments != [] %>
 
 
-<h4>You've watched this movie</h4>
-<p> Have I watched this movie? <%= @movie.user_watched %> </p>
+         <% @movie.newest_comment.each do |comment| %>
+         <h3> See what other readers have to say about this movie: </h3>
+         <div class="new">
+         </div>
+           <% if comment.user_id == current_user.id %>
+           <%= link_to 'Delete Comment', movie_comment_path(@movie, comment), method: :delete %><br>
+           <% end %>
+        <% end %>
 
-<p><%= link_to "Show All #{@director.name} Movies", director_path(@director) %> | <%= link_to "Edit Movie", edit_director_movie_path %> | <%= link_to "Delete Movie", director_movie_path, method: :delete, data: {confirm: "Are you sure you want to delete this Movie?"} %> </p>
+
+     <br>
+     <%= link_to "Click here to load all of #{@movie.title}'s comments", movie_comments_path(@movie), class: "all_comments" %>
+     <div class="comments">
+
+     </div>
+
+   <% else %>
+      <p>There are no comments yet. Add yours below!</p>
+   <% end %>
+
+   <h2>Add a comment:</h2>
+
+<%= form_for([@movie, @comment]) do |f| %>
+   <%= f.text_area :body %>
+   <p><%= f.submit %></p>
+<% end %>
+

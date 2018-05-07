@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180505181035) do
+ActiveRecord::Schema.define(version: 20180507145508) do
 
   create_table "comments", force: :cascade do |t|
     t.text "body"
@@ -26,16 +26,6 @@ ActiveRecord::Schema.define(version: 20180505181035) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "directors", force: :cascade do |t|
-    t.string "name"
-    t.integer "user_id"
-    t.boolean "favorite", default: false
-    t.integer "rating"
-    t.string "notes"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "genres", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -45,13 +35,15 @@ ActiveRecord::Schema.define(version: 20180505181035) do
   create_table "movies", force: :cascade do |t|
     t.string "title"
     t.integer "year"
-    t.integer "director_id"
     t.integer "genre_id"
     t.text "description"
     t.integer "user_id"
-    t.boolean "watched", default: false
+    t.integer "user_watched"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "inventory"
+    t.boolean "watched", default: false
+    t.string "director"
   end
 
   create_table "users", force: :cascade do |t|

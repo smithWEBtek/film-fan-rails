@@ -1,0 +1,30 @@
+<h1>Add a Movie and Genre</h1>
+
+
+<%= form_for @genre, html: { multipart: true } do |f| %>
+  <%= f.label :name, 'New Genre Name:' %><br>
+  <%= f.text_field :name %>
+  <br>
+  <br>
+  <strong>Your New Movie:</strong>
+  <br>
+  <br>
+  <%= f.fields_for :movies, @genre.movies.build do |b| %>
+      
+      <%= b.label :title, "Title:"%><br>
+      <%= b.text_field :title %><br>
+      <br>
+      <%= b.label :director, "Director:"%><br>
+      <%= b.text_field :director %><br>
+      <br>
+      <%= b.label :year, "Year:"%><br>
+      <%= b.text_field :year%><br>
+      <br>
+      <%= b.label :description, "Write a short Movie summary:"%><br>
+      <%= b.text_area :description%><br>
+      <br>
+      <%= b.hidden_field :user_id, :value => current_user.id %>
+      <%= b.hidden_field :user_watched, :value => current_user.id %>
+  <%= f.submit "Add Genre and Movie!" %>
+  <% end %>
+<% end %>

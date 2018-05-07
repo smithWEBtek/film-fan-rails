@@ -8,10 +8,7 @@
         <% if !!current_user %>
             <li class="nav-item">
               
-              <%= link_to "All Directors", directors_path %>
-              <%= link_to "Favorite Directors", directors_favorites_path %>
-              <%= link_to "Movies I've Watched", movies_watched_path %>
-              <%= link_to "Profile", user_path(current_user) %>
+              <%= link_to "Directory", directory_path(current_user) %>
               <%= link_to logout_path, method: :delete, class: 'nav-link' do %>
                   <span class="log-out"></span> Sign Out
               <% end %>
