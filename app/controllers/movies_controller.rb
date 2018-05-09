@@ -7,6 +7,7 @@ class MoviesController < ApplicationController
 
   def new
     @movie = Movie.new
+    @movie.build_genre
   end
 
   def create
