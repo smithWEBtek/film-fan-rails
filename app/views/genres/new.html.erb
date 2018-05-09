@@ -9,22 +9,22 @@
   <strong>Your New Movie:</strong>
   <br>
   <br>
-  <%= f.fields_for :movies, @genre.movies.build do |b| %>
+  <%= f.fields_for :movies, @genre.movies.build do |m| %>
       
-      <%= b.label :title, "Title:"%><br>
-      <%= b.text_field :title %><br>
+      <%= m.label :title, "Title:"%><br>
+      <%= m.text_field :title %><br>
       <br>
-      <%= b.label :director, "Director:"%><br>
-      <%= b.text_field :director %><br>
+      <%= m.label :director, "Director:"%><br>
+      <%= m.text_field :director %><br>
       <br>
-      <%= b.label :year, "Year:"%><br>
-      <%= b.text_field :year%><br>
+      <%= m.label :year, "Year:"%><br>
+      <%= m.text_field :year%><br>
       <br>
-      <%= b.label :description, "Write a short Movie summary:"%><br>
-      <%= b.text_area :description%><br>
+      <%= m.label :description, "Write a short Movie summary:"%><br>
+      <%= m.text_area :description%><br>
       <br>
-      <%= b.hidden_field :user_id, :value => current_user.id %>
-      <%= b.hidden_field :user_watched, :value => current_user.id %>
+      <%= m.hidden_field :user_id, :value => current_user.id %>
+      <%= m.hidden_field :user_watched, :value => current_user.id %>
   <%= f.submit "Add Genre and Movie!" %>
   <% end %>
 <% end %>

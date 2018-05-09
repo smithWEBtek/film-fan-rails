@@ -9,7 +9,7 @@ class Movie < ApplicationRecord
   validates_presence_of :title, :year, :description, :director
 
 
-  def available
+  def available?
     if self.inventory != 0
       return true
     else
@@ -23,7 +23,7 @@ class Movie < ApplicationRecord
     self.save
   end
 
-  def self.newest_comment
+  def self.newest_movies
     order('created_at desc').limit(5)    
   end
 

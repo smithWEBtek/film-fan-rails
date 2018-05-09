@@ -12,6 +12,7 @@ class GenresController < ApplicationController
     @genre = Genre.new(genre_params)
     if @genre.save
       flash[:success] = "#{@genre.name} added"
+      binding.pry
       redirect_to genre_path(@genre)
     else
       flash.now[:error] = "Please enter a genre"
@@ -41,7 +42,7 @@ class GenresController < ApplicationController
     end
 
     def genre_params
-      params.require(:genre).permit(:name, movies_atrributes: [:title, :year, :description, :id])
+      params.require(:genre).permit(:name, movies_attributes: [:id, :title, :year, :description ])
     end
 
 

@@ -26,7 +26,7 @@ class User < ApplicationRecord
   end
 
   def watched_movies
-    @watched_movies = self.movies.find_all {|movie| movie.user_wathed == self.id}
+    @watched_movies = self.movies.find_all {|movie| movie.user_watched == self.id}
   end
 
   def create_directory

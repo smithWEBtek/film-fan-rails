@@ -10,7 +10,7 @@
             <li><%=link_to movie.title, movie_path(movie.id)%> by <%=movie.director%></li>
             
             <%= link_to 'Delete movie', movie_path(movie), :id => "directory-button", method: :delete %><br>
-            <%= link_to 'Edit book', edit_movie_path(movie), :id => "directory-button" %>
+            <%= link_to 'Edit movie', edit_movie_path(movie), :id => "directory-button" %>
                 <br>
                 <br>
         <%end%>

@@ -7,16 +7,15 @@ class MoviesController < ApplicationController
 
   def new
     @movie = Movie.new
-    @movie.build_genre
-    
   end
 
   def create
     @movie = Movie.new(movie_params)
+    @movie.user = current_user
+    current_user.watched_movies << @movie
+    @movie.update(user_id: current_user.id, user_watched: current_user.id, inventory: 1)
     if @movie.save
-      @movie.update(user_id: current_user.id, user_watched: current_user.id)
-      current_user.watched_movies << @movie
-      redirect_to movies_path(@movie), flash: {success: "'#{@movie.title}' was added!"}
+      redirect_to directory_path(current_user.id), flash: {success: "'#{@movie.title}' was added!"}
     else
       flash.now[:error] = "Please enter all fields"
       render :new
@@ -27,6 +26,7 @@ class MoviesController < ApplicationController
     @movie = Movie.find(params[:id])
     @comments = @movie.comments
     @comment = Comment.new
+    
   end
 
   def edit
@@ -34,6 +34,8 @@ class MoviesController < ApplicationController
   end
 
   def update
+    @movie = Movie.find(params[:id])
+
     if @movie.update(movie_params)
       redirect_to movie_path(@movie), flash: {success: "#{@movie.title} was updated"}
     else
@@ -64,7 +66,7 @@ class MoviesController < ApplicationController
 
 
     def movie_params
-      params.require(:movie).permit(:title, :year, :description, :director, genre_ids:[], :genres_attributes => [:id, :name, :_destroy])
+      params.require(:movie).permit(:title, :year, :description, :director, :genre_id, :genres_attributes => [:id, :name, :_destroy])
     end
 
 

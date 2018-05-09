@@ -1,0 +1,9 @@
+<h1>Here's what we have in <%=@genre.name%>:</h1>
+
+<ol>
+<% @genre.movies.each do |movie| %>
+    <li><%= movie.title%> by <%= movie.director %></li>
+         <%= link_to 'See more', movie_path(movie) %><br>
+         <br>
+    <% end %>
+</ol>
