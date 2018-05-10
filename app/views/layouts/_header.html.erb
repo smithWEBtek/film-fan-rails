@@ -10,6 +10,7 @@
             <li class="nav-item">
               
               <%= link_to "Directory", directory_path(current_user) %>
+              <%= link_to "Genres", genres_path %>
               <%= link_to logout_path, method: :delete, class: 'nav-link' do %>
                   <span class="log-out"></span> Sign Out
               <% end %>
