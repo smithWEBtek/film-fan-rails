@@ -14,7 +14,7 @@ class MoviesController < ApplicationController
     @movie = Movie.new(movie_params)
     @movie.user = current_user
     current_user.watched_movies << @movie
-    @movie.update(user_id: current_user.id, user_watched: current_user.id, inventory: 1)
+    @movie.update(user_id: current_user.id, user_watched: current_user.id, inventory: 2)
     if @movie.save
       redirect_to directory_path(current_user.id), flash: {success: "'#{@movie.title}' was added!"}
     else

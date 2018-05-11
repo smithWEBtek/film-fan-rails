@@ -16,7 +16,7 @@
   <p>These movies are brand spankin' new!</p>
 
   <div class="container-show">
-    <ol>
+    <ol style="list-style-type:none">
     <% Movie.newest_movies.each do |movie| %>
       <li> <%= link_to movie.title, movie_path(movie.id) %> by <%=movie.director%></li>
     <% end %>

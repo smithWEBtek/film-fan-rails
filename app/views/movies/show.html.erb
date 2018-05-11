@@ -16,6 +16,9 @@
 
 
          <% @movie.newest_comment.each do |comment| %>
+
+       <li><strong>Comment by <%=comment.user.username%></strong></li><br>
+       <%= comment.body %>
          <h3> See what other film fans have to say about this movie: </h3>
          <div class="new">
          </div>
