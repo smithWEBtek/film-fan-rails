@@ -1,7 +1,12 @@
 <%= form_for @user, url: signup_path do |f| %>
 
+<%= render 'shared/error_messages' %>
+
+
+<div class="field">
   <%= f.label :username, "Username" %><br>
   <%= f.text_field :username %><br><br>
+</div>
   <%= f.label :email, "Email" %><br>
   <%= f.text_field :email %><br><br>
   <%= f.label :password, "Password (min. 8 characters)" %><br>

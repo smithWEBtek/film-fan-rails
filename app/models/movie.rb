@@ -1,7 +1,7 @@
 class Movie < ApplicationRecord
  belongs_to :user
   belongs_to :genre
-  has_many :comments
+  has_many :comments, dependent: :destroy
   
   scope :newest_movies, -> { order('created_at desc').limit(5) }
   # scope :newest_comment, -> {comments.order('created_at desc').limit(1)}
