@@ -22,7 +22,7 @@ Rails.application.routes.draw do
      resources :movies 
    
    resources :movies, only: [:show] do
-    resources :comments, only: [:index, :show, :new, :create, :destroy]
+    resources :comments, only: [:index, :new, :create, :destroy]
   end
     
   resources :directory, only: [:show]
