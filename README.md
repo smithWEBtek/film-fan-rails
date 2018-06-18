@@ -2,7 +2,7 @@
 
  Becoming a fan is easy; The Film Fan is an app that allows  to save and favorite their movies with other users. Users can add their favorite moviess to the directory for everyone to view and favorite. Users can also comment on movies to let each other know what they thought.
 
- Installation
+ ## Installation
 
  This app requires Ruby 2.3.1 and Rails 5.1.4.
 
