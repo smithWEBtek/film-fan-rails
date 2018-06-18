@@ -19,7 +19,7 @@
 
        <li><strong>Comment by <%=comment.user.username%></strong></li><br>
        <%= comment.body %>
-         <h3> See what other film fans have to say about this movie: </h3>
+         
          <div class="new">
          </div>
            <% if comment.user_id == current_user.id %>
@@ -27,7 +27,7 @@
            <% end %>
         <% end %>
 
-
+        <h3> See what other film fans have to say about this movie: </h3>
      <br>
      <%= link_to "Click here to load all of #{@movie.title}'s comments", movie_comments_path(@movie), class: "all_comments" %>
      <div class="comments">
@@ -38,10 +38,10 @@
       <p>There are no comments yet. Add yours below!</p>
    <% end %>
 
-   <h2>Add a comment:</h2>
+  <!--  <h2>Add a comment:</h2>
 
 <%= form_for([@movie, @comment]) do |f| %>
    <%= f.text_area :body %>
    <p><%= f.submit %></p>
-<% end %>
+<% end %> -->
 

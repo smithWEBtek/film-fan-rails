@@ -19,13 +19,23 @@ class CommentsController < ApplicationController
       flash[:success] = 'Comment posted.'
       redirect_to movie_path(@movie)
     else
-      flash[:try_again] = "Something went wrong - please try again."
-      redirect_to movie_path(@movie)
+      flash[:error] = "Please try again -- Comment must be at least 10 characters."
+      render :new
     end
   end
 
   def show
     render 'comments/index'
+  end
+
+  def update
+    @comment = @movie.comments.find(params[:id])
+
+    if @comment.update(comment_params)
+      redirect_to movie_path(@movie), flash: {success: "comment was updated"}
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -41,7 +51,7 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit(:body, :user_id, :book_id)
+    params.require(:comment).permit(:body, :user_id, :movie_id)
   end
 
   def set_movie
