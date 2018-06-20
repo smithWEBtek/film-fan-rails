@@ -10,7 +10,7 @@ class GenresController < ApplicationController
 
   def create
     @genre = Genre.new(genre_params)
-       @genre.movies.first.update(user_id: current_user.id, user_watched: current_user.id)
+       @genre.movies.first.update(user_id: current_user.id)
     # binding.pry
     if @genre.save
       flash[:success] = "#{@genre.name} added"

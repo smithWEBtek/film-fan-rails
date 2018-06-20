@@ -4,7 +4,7 @@
 <h3>Movies I've Watched</h3>
 <p><%=link_to 'Click here to add a Movie to your Movies I have watched list', new_movie_path%></p>
 
-    <% if @watched_movies != [] %>
+    <% if current_user.movies != [] %>
         <ol style="list-style-type:none">
         <% @watched_movies.each do |movie| %>
             <li><%=link_to movie.title, movie_path(movie.id)%> by <%=movie.director%></li>

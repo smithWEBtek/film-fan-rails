@@ -38,7 +38,6 @@ ActiveRecord::Schema.define(version: 20180507145508) do
     t.integer "genre_id"
     t.text "description"
     t.integer "user_id"
-    t.integer "user_watched"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "inventory"

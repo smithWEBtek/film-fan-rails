@@ -8,8 +8,9 @@
        <p>This movie is available.</p>
           <p><%= button_to 'Favorite this movie', favorite_path %></p>
           <% else %>
-             <p><strong>Sorry, thise movie isn't available. </strong></p>
+             <p><strong>Sorry, this movie isn't available. </strong></p>
           <% end %>
+          <p> <%= button_to 'Add to Watched Movies', watched_path %></p>
  
  <h2>Comments</h2>
    <% if @movie.comments != [] %>
@@ -36,6 +37,7 @@
 
    <% else %>
       <p>There are no comments yet. Add yours below!</p>
+      <%= link_to "Add a new comment", new_movie_comment_path(@movie) %>
    <% end %>
 
 

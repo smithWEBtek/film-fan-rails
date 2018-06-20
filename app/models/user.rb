@@ -1,3 +1,4 @@
+
 class User < ApplicationRecord
   has_secure_password 
 
@@ -25,9 +26,9 @@ class User < ApplicationRecord
     end
   end
 
-  def watched_movies
-    @watched_movies = self.movies.find_all {|movie| movie.user_watched == self.id}
-  end
+  # def watched_movies
+  #   @watched_movies = self.movies.find_all {|movie| movie.user_id == self.id}
+  # end
 
   def create_directory
     new_directory = Directory.new
