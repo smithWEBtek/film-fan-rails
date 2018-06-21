@@ -53,27 +53,26 @@ class MoviesController < ApplicationController
     redirect_to directory_path(current_user.id)
   end
 
-  def favorite
-    @movie = Movie.find(params[:id])
-    if @movie.user_id = current_user.id
-        @movie.favorite
-        redirect_to directory_path(current_user.id), flash: {success: "Movie added to your favorites!"}
-   else
-    flash[:error] = "Movie was not added to your favorites."
-end
-  end
-
   def watched
     @movie = Movie.find(params[:id])
     if @movie.user_id = current_user.id
-      @movie.watched = !@movie.watched 
-      @watched_movies << @movie
-      redirect_to directory_path(current_user.id), flash: {success: "Movie has been watched!"}
-    else
-      flash[:error] = "Movie was not added to watched movies."
-    end
-
+        @movie.watched
+        redirect_to directory_path(current_user.id), flash: {success: "Movie added to your watched movies!"}
+   else
+    flash[:error] = "Movie was not added to your watched movies."
+end
   end
+
+  # def watched
+  #   @movie = Movie.find(params[:id])
+  #   if @movie.user_id = current_user.id
+  #     @movie.watched = !@movie.watched 
+  #     redirect_to directory_path(current_user.id), flash: {success: "Movie has been watched!"}
+  #   else
+  #     flash[:error] = "Movie was not added to watched movies."
+  #   end
+
+  # end
 
  
 

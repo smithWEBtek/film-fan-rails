@@ -21,7 +21,7 @@ class Movie < ApplicationRecord
     end  
   end
 
-  def favorite
+  def watched
     self.inventory = self.decrement(:inventory, 1)
     self.watched = true
     self.save

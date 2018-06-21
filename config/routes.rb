@@ -29,7 +29,7 @@ Rails.application.routes.draw do
   resources :directory, only: [:show]
   resources :genres
 
-  post 'movies/:id/favorite', to: 'movies#favorite', as: 'favorite'
+  # post 'movies/:id/favorite', to: 'movies#favorite', as: 'favorite'
   
   post 'movies/:id/watched', to: 'movies#watched', as: 'watched'
 
