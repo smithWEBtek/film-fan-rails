@@ -14,10 +14,10 @@ class MoviesController < ApplicationController
   def create
     @movie = Movie.new(movie_params)
     @movie.user = current_user
-    # current_user.watched_movies << @movie
-    @movie.update(user_id: current_user.id, inventory: 2)
     if @movie.save
-      redirect_to directory_path(current_user.id), flash: {success: "'#{@movie.title}' was added!"}
+      @movie.update(user_id: current_user.id)
+      
+      redirect_to genres_path, flash: {success: "'#{@movie.title}' was added!"}
     else
       flash.now[:error] = "Please enter all fields"
       render :new
@@ -56,25 +56,13 @@ class MoviesController < ApplicationController
   def watched
     @movie = Movie.find(params[:id])
     if @movie.user_id = current_user.id
-        @movie.watched
-        redirect_to directory_path(current_user.id), flash: {success: "Movie added to your watched movies!"}
-   else
-    flash[:error] = "Movie was not added to your watched movies."
-end
+      @movie.watched = !@movie.watched 
+      @movie.save
+      redirect_to directory_path(current_user.id), flash: {success: "Movie has been watched!"}
+    else
+      flash[:error] = "Movie was not added to watched movies."
+    end
   end
-
-  # def watched
-  #   @movie = Movie.find(params[:id])
-  #   if @movie.user_id = current_user.id
-  #     @movie.watched = !@movie.watched 
-  #     redirect_to directory_path(current_user.id), flash: {success: "Movie has been watched!"}
-  #   else
-  #     flash[:error] = "Movie was not added to watched movies."
-  #   end
-
-  # end
-
- 
 
   private
 

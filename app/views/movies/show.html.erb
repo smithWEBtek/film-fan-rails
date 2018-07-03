@@ -3,6 +3,7 @@
 <h4><%= @movie.year %></h4>
 <p><strong>Description:</strong> <%= @movie.description %></p>
 
+
 <p><strong>Availability:</strong></p>
    <% if @movie.available? %>
        <p>This movie is available.</p>
@@ -10,8 +11,9 @@
           <% else %>
              <p><strong>Sorry, this movie isn't available. </strong></p>
           <% end %>
-          <!-- <p> <%= button_to 'Add to Watched Movies', watched_path %></p> -->
- 
+
+          
+
  <h2>Comments</h2>
    <% if @movie.comments != [] %>
 

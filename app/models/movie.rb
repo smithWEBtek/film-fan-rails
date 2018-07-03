@@ -14,18 +14,14 @@ class Movie < ApplicationRecord
 
 
   def available?
-    if self.inventory != 0
+    if self.watched != true
       return true
     else
       return false
     end  
   end
 
-  def watched
-    self.inventory = self.decrement(:inventory, 1)
-    self.watched = true
-    self.save
-  end
+
 
   # def self.newest_movies
   #   order('created_at desc').limit(5)    

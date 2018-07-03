@@ -40,7 +40,6 @@ ActiveRecord::Schema.define(version: 20180507145508) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "inventory"
     t.boolean "watched", default: false
     t.string "director"
   end
