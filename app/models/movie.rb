@@ -21,8 +21,6 @@ class Movie < ApplicationRecord
     end  
   end
 
-
-
   # def self.newest_movies
   #   order('created_at desc').limit(5)    
   # end
@@ -31,19 +29,9 @@ class Movie < ApplicationRecord
     self.comments.order('created_at desc').limit(1)
   end
 
-
-
   def make_title_case
     self.title = self.title.titlecase
   end
 
-  # def genres_attributes=(genre_attributes)
-  #   genre_attributes.values.each do |genre_attr|
-  #     if !genre_attr[:name].blank?
-  #       genre = Genre.find_or_create_by(genre_attr)
-  #         self.genres << genre
-  #     end
-  #   end
-  # end
   
 end
