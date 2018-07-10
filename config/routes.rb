@@ -14,6 +14,10 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
 
+  # get 'movies/newest', to: "movies#newest", as: 'newest'
+
+  post 'movies/:id/watched', to: 'movies#watched', as: 'watched'
+
   resources :users, except: [:index]
   resources :sessions, only: [:new, :create, :destroy]
 
@@ -30,8 +34,9 @@ Rails.application.routes.draw do
   resources :genres
 
   # post 'movies/:id/favorite', to: 'movies#favorite', as: 'favorite'
+  # get 'genre/newest', to: "genres#newest", as: 'newest'
   
-  post 'movies/:id/watched', to: 'movies#watched', as: 'watched'
+ 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

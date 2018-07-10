@@ -29,6 +29,8 @@ class UsersController < ApplicationController
     redirect_to root_path unless session[:user_id] 
   end
 
+  
+
   def update
     if @user.update(user_params)
       flash[:success] = "Profile Updated"
@@ -37,6 +39,7 @@ class UsersController < ApplicationController
       render :edit #error; show user the form again
     end
   end
+
 
   def destroy
     @user.destroy

@@ -7,7 +7,7 @@ class CreateMovies < ActiveRecord::Migration[5.1]
       t.integer :genre_id
       t.text :description
       t.integer :user_id
-    
+      t.boolean :watched, default: false
       
       
 

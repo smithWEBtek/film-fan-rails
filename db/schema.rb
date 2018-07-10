@@ -38,9 +38,9 @@ ActiveRecord::Schema.define(version: 20180507145508) do
     t.integer "genre_id"
     t.text "description"
     t.integer "user_id"
+    t.boolean "watched", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "watched", default: false
     t.string "director"
   end
 
