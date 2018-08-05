@@ -1,6 +1,6 @@
 # Film Fan
 
- Becoming a fan is easy; The Film Fan is an app that allows  to save and favorite their movies with other users. Users can add their favorite moviess to the directory for everyone to view and favorite. Users can also comment on movies to let each other know what they thought.
+ Becoming a fan is easy; The Film Fan is an app that allows  to save and favorite their movies with other users. Users can add their favorite movies to the directory for everyone to view and favorite. Users can also comment on movies to let each other know what they thought.
 
  ## Installation
 
