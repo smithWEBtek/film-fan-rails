@@ -4,6 +4,8 @@ class CommentsController < ApplicationController
   def index
     @movie = Movie.find(params[:movie_id])
     @comments = @movie.comments.all
+
+    render :layout => false
   end
 
   def new
@@ -25,7 +27,7 @@ class CommentsController < ApplicationController
   end
 
   def show
-    render 'comments/index'
+    render 'comments/index', :layout => false
   end
 
   def update
