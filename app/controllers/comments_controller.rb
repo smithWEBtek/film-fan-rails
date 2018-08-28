@@ -5,7 +5,10 @@ class CommentsController < ApplicationController
     @movie = Movie.find(params[:movie_id])
     @comments = @movie.comments.all
 
-    render :layout => false
+    respond_to do |format|
+      format.html {render 'index.html', :layout => false}
+      format.js {render 'index.js', :layout => false} 
+    end
   end
 
   def new
@@ -17,13 +20,21 @@ class CommentsController < ApplicationController
     @movie = Movie.find(params[:movie_id])
     @comment = @movie.comments.new(comment_params)
     @comment.user_id = current_user.id
+
     if @comment.save
       flash[:success] = 'Comment posted.'
-      redirect_to movie_path(@movie)
+
+      respond_to do |format|
+        format.html {render 'index.html', :layout => false}
+        format.js {render 'index.js', :layout => false}
+      end
+
     else
       flash[:notice] = "Please try again -- Comment must be at least 10 characters."
-      render :new
+      redirect_to movie_path(@movie)
     end
+
+
   end
 
   def show
