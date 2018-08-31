@@ -12,6 +12,7 @@
  *
  *= require_tree .
  *= require_self
+ 
  */
 
  
@@ -76,11 +77,13 @@ form {
 }
 
 
+
 input::placeholder {
   font-size: 12px;
   font-style: italic;
   padding: 0 6px;
 }
+
 
 .container_show {
   // width: 150px;
