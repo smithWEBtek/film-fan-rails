@@ -26,7 +26,8 @@ class CommentsController < ApplicationController
           flash[:success] = 'Comment posted!'
           redirect_to movie_path(@movie)
       end
-      format.js
+      format.js do
+        render json => @movie
     end
     else
       flash[:notice] = "Please try again -- Comment must be at least 10 characters."
