@@ -4,7 +4,11 @@ $(function() {
       method: "GET",
       url: this.href
     }).done(function(response){
-      $("div.comments").html(response)
+      const result = response.filter(resp => resp.body.length > 4)
+
+      $("div.comments").html(result.map(resp => {
+        return `<p><strong> ${resp.user.username} </strong>: ${resp.body} </p>`
+      }))
     })
     e.preventDefault();
    })

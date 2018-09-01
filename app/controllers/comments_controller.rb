@@ -5,7 +5,7 @@ class CommentsController < ApplicationController
     @movie = Movie.find(params[:movie_id])
     @comments = @movie.comments.all
 
-   render :layout => false
+   render json: @comments, status: 200
   end
 
   def new
@@ -29,6 +29,7 @@ class CommentsController < ApplicationController
       format.js do
         render :json => @comment
     end
+  end
     else
       flash[:notice] = "Please try again -- Comment must be at least 10 characters."
       redirect_to movie_path(@movie)

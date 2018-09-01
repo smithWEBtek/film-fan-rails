@@ -28,6 +28,12 @@ class MoviesController < ApplicationController
     @movie = Movie.find(params[:id])
     @comments = @movie.comments
     @comment = Comment.new
+
+    respond_to do |format|
+      format.html { render :show }
+      format.json { render json: @movie}
+      
+    end
     
   end
 
