@@ -23,14 +23,15 @@ $(function() {
 });
 
 function Comment(json) {
-  this.body = json.name
+  this.id = json.id
+  this.body = json.body
 }
- Comment.prototype.renderLI = function() {
-   "<li>" + Comment + "</li>"
+ Comment.prototype.renderP = function() {
+   return "<p>" + this.body + "</p>"
 }
  $(function() {
   $("form#new_comment").on("submit", function(e) {
-    e.preventDefault;
+    e.preventDefault();
     var $form = $(this);
     var action = $form.attr("action");
     var params = $form.serialize();
@@ -42,8 +43,8 @@ function Comment(json) {
       })
       .done(function(json) {
        var comment = new Comment(json)
-       var commentLI = comment.renderLI()
-       $(".comments").append(commentLI)
+       var commentP = comment.renderP()
+       $(".new").append(commentP)
      })
     .error(function(response) {
       console.log("error!", response)
