@@ -1,4 +1,6 @@
-
+function Comment(json) {
+  this.body = json.name
+}
  Comment.prototype.renderLI = function() {
   "<li>" + Comment + "</li>"
 }
@@ -15,7 +17,7 @@
       dataType: "json",
       method: "POST"
     })
-    .success(function(json) {
+    .done(function(json) {
       var comment = new Comment(json)
        var commentLI = comment.renderLI()
        $(".comments").append(commentLI)
