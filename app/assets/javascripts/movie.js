@@ -23,7 +23,7 @@ $(function() {
       $("div.show_movies").html(response.movies.map(resp => {
         return `<h3><strong> ${resp.title} </strong></h3>
                 <p> by ${resp.director}</p>
-                <a href="moviess/${resp.id}">View movie</a>`
+                <a href="movies/${resp.id}">View movie</a>`
       }))
     })
     e.preventDefault();
