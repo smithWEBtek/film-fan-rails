@@ -18,10 +18,14 @@ $(function() {
   $("a.show_genre").on("click", function(e){
     $.ajax({
      method: "GET",
-     url: this.href
+     url: `${this.href}.json`
     }).done(function(response){
-      $("div.show_movies").html(response)
-      })
+      $("div.show_movies").html(response.movies.map(resp => {
+        return `<h3><strong> ${resp.title} </strong></h3>
+                <p> by ${resp.director}</p>
+                <a href="moviess/${resp.id}">View movie</a>`
+      }))
+    })
     e.preventDefault();
   })
 });
