@@ -2,7 +2,7 @@ $(function() {
   $("a.all_comments").on("click", function(e){
     $.ajax({
       method: "GET",
-      url: this.href
+      url: `${this.href}.json`
     }).done(function(response){
       const result = response.filter(resp => resp.body.length > 4)
 
@@ -29,6 +29,7 @@ $(function() {
 function Comment(json) {
   this.id = json.id
   this.body = json.body
+  
 }
  Comment.prototype.renderP = function() {
    return "<p>" + this.body + "</p>"

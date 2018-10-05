@@ -18,10 +18,9 @@
    <% if @movie.comments != [] %>
 
 
-    <div class="new_comment">
+   
          <% @movie.newest_comment.each do |comment| %>
-         <strong>Comment by <%= comment.user.username%></strong><br>
-         <%= comment.body %>
+        
          <br>
          <br>
          <div class="new">
@@ -31,7 +30,7 @@
            <%= link_to 'Delete Comment', movie_comment_path(@movie, comment), method: :delete %><br>
            <% end %>
         <% end %>
-     </div>
+  
 
 
      <%= link_to "Click here to load all of #{@movie.title}'s comments", movie_comments_path(@movie), class: "all_comments" %>

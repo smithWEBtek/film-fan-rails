@@ -5,7 +5,12 @@ class CommentsController < ApplicationController
     @movie = Movie.find(params[:movie_id])
     @comments = @movie.comments.all
 
-   render json: @comments, status: 200
+   respond_to do |format|
+    format.html { render :index }
+    format.json { render json: @comments}
+
+     
+   end
   end
 
   def new
