@@ -1,3 +1,4 @@
 class MovieSerializer < ActiveModel::Serializer
-  attributes :id
+  attributes :id, :title
+  has_many :comments
 end
