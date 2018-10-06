@@ -15,6 +15,8 @@
           
 
  <h2>Comments</h2>
+ <% if @movie.comments != [] %>
+
   <% @movie.newest_comment.each do |comment| %>
        <strong>Comment by <%= comment.user.username%></strong><br>
        <%= comment.body %>
@@ -37,7 +39,9 @@
      <div class="comments">
 
      </div>
-
+     <% else %>
+     <p> There are no comments yet!</p>
+     <% end %>
 
    <h2>Add a comment:</h2>
 
