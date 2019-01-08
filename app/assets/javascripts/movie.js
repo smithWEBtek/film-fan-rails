@@ -33,10 +33,13 @@ $(function() {
 function Comment(json) {
   this.id = json.id
   this.body = json.body
+  this.username = json.user.username
+  
+
   
 }
  Comment.prototype.renderP = function() {
-   return "<p>" + this.body + "</p>"
+   return "<p>" + this.body + " " + "by" + " " + "<strong>" +  this.username + "</strong>" + "</p>" //this.name 
 }
 
  $(function() {
@@ -53,14 +56,18 @@ function Comment(json) {
         method: "POST"
       })
       .done(function(json) {
+        $('form#new_comment').trigger('reset');
+        //$("#new_comment > p > input[type="submit"]").trigger('reset');
+        //#new_comment > p > input[type="submit"]
 
+        
        var comment = new Comment(json)
-
        var commentP = comment.renderP()
 
        $(".new").append(commentP)
+  
      })
-      
+
     .error(function(response) {
       console.log("error!", response)
     })

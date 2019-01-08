@@ -23,7 +23,7 @@
        <br>
        <br>
        <div class="new">
-         
+        <!-- <p> Comment by: <%= comment.user.username %> </p> -->
        </div>
          <% if comment.user_id == current_user.id %>
          <%= link_to 'Delete Comment', movie_comment_path(@movie, comment), method: :delete %><br>
