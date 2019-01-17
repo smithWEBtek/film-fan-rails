@@ -29,8 +29,9 @@ $(function() {
     e.preventDefault();
   })
 });
-
+//Comment Object
 function Comment(json) {
+  //object methods
   this.id = json.id
   this.body = json.body
   this.username = json.user.username
@@ -38,6 +39,7 @@ function Comment(json) {
 
   
 }
+//Created a comment prototype using the comment object that will save the comment attributes and return those attribute in a paragraph.
  Comment.prototype.renderP = function() {
    return "<p>" + this.body + " " + "by" + " " + "<strong>" +  this.username + "</strong>" + "</p>" //this.name 
 }
@@ -45,9 +47,9 @@ function Comment(json) {
  $(function() {
   $("form#new_comment").on("submit", function(e) {
     e.preventDefault();
-    var $form = $(this);
-    var action = $form.attr("action");
-    var params = $form.serialize();
+    var $form = $(this);//this is referring to the entire form and storing it in the $form variable
+    var action = $form.attr("action");//returning the action attrible from the form
+    var params = $form.serialize();//serialize the form data --- the data is then stored in the params variable
 
      $.ajax({
         url: action,
