@@ -8,8 +8,6 @@ class CommentsController < ApplicationController
    respond_to do |format|
     format.html { render :index }
     format.json { render json: @comments}
-
-     
    end
   end
 
@@ -24,8 +22,7 @@ class CommentsController < ApplicationController
     @comment.user_id = current_user.id
 
     if @comment.save
-      
-
+    
       respond_to do |format|
         format.html do
           flash[:success] = 'Comment posted!'

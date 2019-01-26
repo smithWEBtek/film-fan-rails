@@ -3,7 +3,8 @@ class MoviesController < ApplicationController
   
 
   def index
-    @movies = Movie.all
+		@movies = Movie.all
+		render json: @movies
   end
 
   def new
@@ -32,7 +33,6 @@ class MoviesController < ApplicationController
     respond_to do |format|
       format.html { render :show }
       format.json { render json: @movie}
-      
     end
     
   end

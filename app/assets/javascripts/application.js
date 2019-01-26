@@ -11,7 +11,6 @@
 // about supported directives.
 //
 
-//= require jquery
+//= require jquery3
 //= require jquery_ujs
-//= require movie 
-//= require jquery.slick
+//= require_tree .

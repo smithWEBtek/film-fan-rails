@@ -1,7 +1,11 @@
 class GenresController < ApplicationController
 
   def index
-    @genres = Genre.all
+		@genres = Genre.all
+		respond_to do |format|
+			format.html { render :index }
+			format.json {render json: @genres}
+		end
   end
 
   def new

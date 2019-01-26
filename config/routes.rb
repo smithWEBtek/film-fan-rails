@@ -21,10 +21,7 @@ Rails.application.routes.draw do
   resources :users, except: [:index]
   resources :sessions, only: [:new, :create, :destroy]
 
-
-
-   
-     resources :movies 
+	resources :movies 
    
    resources :movies, only: [:show] do
     resources :comments, only: [:index, :new, :create, :destroy]
